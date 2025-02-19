@@ -2,22 +2,22 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
-import Lugares_de_ayuda from './pages/Lugares_de_ayuda.jsx';
-import Embajadas from './pages/Embajadas.jsx';
-import Mensajeria from './pages/Mensajeria.jsx';
+import HelpPlaces from './pages/HelpPlaces.jsx';
+import Embassies from './pages/Embassies.jsx';
+import Chat from './pages/Chat.jsx';
 import Blog from './pages/Blog.jsx';
 import Gadgets from './pages/Gadgets.jsx';
-import Chatbot from './pages/Chatbot.jsx';
-import Contact_list from './pages/Contact_list.jsx';
-import Requisitos_migratorios from './pages/Requisitos_migratorios.jsx';
-import Saldo_paypal from './pages/Saldo_paypal.jsx';
-import Preguntas_frecuentes from './pages/Preguntas_frecuentes.jsx';
-import Emergencia from './pages/Emergencia.jsx';
-import Estadisticas_reportes from './pages/Estadisticas_reportes.jsx';
-import Contactar_ayuda from './pages/Contactar_ayuda.jsx';
-import Vista_ubicacion from './pages/Vista_ubicacion.jsx';
-import Consola_manejo_de_datos from './pages/Consola_manejo_de_datos.jsx';
-import Panel_edicion_dashboard from './pages/Panel_edicion_dashboard.jsx';
+import ChatBot from './pages/ChatBot.jsx';
+import ContactList from './pages/ContactList.jsx';
+import ImmigrationRequirements from './pages/ImmigrationRequirements.jsx';
+import PaypalBalance from './pages/PaypalBalance.jsx';
+import FreqAskedQuestions from './pages/FreqAskedQuestions.jsx';
+import Emergency from './pages/Emergency.jsx';
+import StatsAndReports from './pages/StatsAndReports.jsx';
+import Help from './pages/Help.jsx';
+import LocationView from './pages/LocationView.jsx';
+import AdminConsole from './pages/AdminConsole.jsx';
+import DashboardEdition from './pages/DashboardEdition.jsx';
 import injectContext from "./store/appContext";
 import Home from "./pages/Home.jsx";
 import Navbar from "./component/Navbar.jsx";
@@ -38,22 +38,22 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<Home/>} />
-                        <Route path="/lugares-de-ayuda" element={<Lugares_de_ayuda />} />
-                        <Route path="/embajadas" element={<Embajadas />} />
-                        <Route path="/mensajeria" element={<Mensajeria />} />
+                        <Route path="/help-places" element={<HelpPlaces />} />
+                        <Route path="/embassies" element={<Embassies />} />
+                        <Route path="/chat" element={<Chat />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/gadgets" element={<Gadgets />} />
-                        <Route path="/chatbot" element={<Chatbot />} />
-                        <Route path="/contact-list" element={<Contact_list />} />
-                        <Route path="/requisitos-migratorios" element={<Requisitos_migratorios />} />
-                        <Route path="/saldo-paypal" element={<Saldo_paypal />} />
-                        <Route path="/preguntas-frecuentes" element={<Preguntas_frecuentes />} />
-                        <Route path="/emergencia" element={<Emergencia />} />
-                        <Route path="/estadisticas-reportes" element={<Estadisticas_reportes />} />
-                        <Route path="/contactar-ayuda" element={<Contactar_ayuda />} />
-                        <Route path="/vista-ubicacion" element={<Vista_ubicacion />} />
-                        <Route path="/consola-manejo-datos" element={<Consola_manejo_de_datos />} />
-                        <Route path="/panel-edicion-dashboard" element={<Panel_edicion_dashboard />} />
+                        <Route path="/chatbot" element={<ChatBot />} />
+                        <Route path="/contact-list" element={<ContactList />} />
+                        <Route path="/immigration-requirements" element={<ImmigrationRequirements />} />
+                        <Route path="/paypal-balance" element={<PaypalBalance />} />
+                        <Route path="/freq-asked-questions" element={<FreqAskedQuestions />} />
+                        <Route path="/emergency" element={<Emergency />} />
+                        <Route path="/stats-and-reports" element={<StatsAndReports />} />
+                        <Route path="/help" element={<Help />} />
+                        <Route path="/location-view" element={<LocationView />} />
+                        <Route path="/admin-console" element={<AdminConsole />} />
+                        <Route path="/dashboard-edition" element={<DashboardEdition />} />
                     </Routes>
                     <Footer />
                 </ScrollToTop>

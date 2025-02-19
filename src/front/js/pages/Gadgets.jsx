@@ -2,7 +2,7 @@ import React from 'react'
 
 const Gadgets = () => {
   return (
-    <div id="gadgtes">
+    <div className="gadgtes">
         <p>Gadgets</p>
         <button></button>
     </div>
