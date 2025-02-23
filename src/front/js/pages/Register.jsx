@@ -4,72 +4,72 @@ import { Context } from '../store/appContext';
 const Register = () => {
   const { store, actions } = useContext(Context);
   const [formData, setFormData] = useState({
-    general_data: 
+    general_data:
     {
-    first_name :'',
-    first_last_name :'',
-    second_last_name :'',
-    nacionality :'',
-    gender :'',
-    birthdate :'',
-    email :'',
-    password :'',
-    phone_number :'',
-    facebook :'',
-    instagram :'',
-    x :''
+      first_name: '',
+      first_last_name: '',
+      second_last_name: '',
+      nacionality: '',
+      gender: '',
+      birthdate: '',
+      email: '',
+      password: '',
+      phone_number: '',
+      facebook: '',
+      instagram: '',
+      x: ''
     },
     clinical_data:
     {
-      blood_type :'',
-      allergy :'',
-      disease :'',
+      blood_type: '',
+      allergy: '',
+      disease: '',
     },
     aditional_data:
     {
-      city :'',
-      address :'',
-      home_country :'',
-      country_of_residence :'',
-      country_of_destination :'',
-      zip_code : ''
+      city: '',
+      address: '',
+      home_country: '',
+      country_of_residence: '',
+      country_of_destination: '',
+      zip_code: ''
     },
-    location:
-    {
-    latitude :'',
-    longitude :''
-    }
+    //location:
+    // {
+    //   latitude: '',
+    //   longitude: ''
+    // }
   });
 
   const handleChange = (e) => {
 
     const { name, value } = e.target;
-  let category = null;
+    let category = null;
 
-  // Se determina la categoría según el nombre del input
-  if (formData.general_data.hasOwnProperty(name)) {
-    category = "general_data";
-  } else if (formData.clinical_data.hasOwnProperty(name)) {
-    category = "clinical_data";
-  } else if (formData.aditional_data.hasOwnProperty(name)) {
-    category = "aditional_data";
-  } else if (formData.location.hasOwnProperty(name)) {
-    category = "location";
-  } else {
-    console.warn(`No se encontró la categoría para el campo "${name}"`);
-  }
+    // Se determina la categoría según el nombre del input
+    if (formData.general_data.hasOwnProperty(name)) {
+      category = "general_data";
+    } else if (formData.clinical_data.hasOwnProperty(name)) {
+      category = "clinical_data";
+    } else if (formData.aditional_data.hasOwnProperty(name)) {
+      category = "aditional_data";
+    } else if (formData.location.hasOwnProperty(name)) {
+      category = "location";
+    } else {
+      console.warn(`No se encontró la categoría para el campo "${name}"`);
+    }
 
-  if (category) {
-    setFormData({
-      ...formData,
-      [category]: {
-        ...formData[category],
-        [name]: value,
-      },
-    });
-  }
-  console.log("este mero", formData[category][name])
-};
+    if (category) {
+      setFormData({
+        ...formData,
+        [category]: {
+          ...formData[category],
+          [name]: value,
+        },
+      });
+    }
+    console.log("este mero", formData[category][name])
+  };
 
   const handleSubmit = () => {
 
@@ -103,14 +103,14 @@ const Register = () => {
             </div>
             <div>
               <label>Contraseña</label>
-              <input type="password" name="password" placeholder='Nombre(s)' value={formData.general_data.password} onChange={handleChange} />
+              <input type="password" name="password" placeholder='Contraseña' value={formData.general_data.password} onChange={handleChange} />
             </div>
 
             <div>
               <label>Pais de Nacimiento</label>
               <input type="text" name="home_country" placeholder='Añadir Select' value={formData.aditional_data.home_country} onChange={handleChange} />
             </div>
-            
+
             <div>
               <label>Pais de Destino</label>
               <input type="text" name="country_of_destination" placeholder='Añadir Select' value={formData.aditional_data.country_of_destination} onChange={handleChange} />

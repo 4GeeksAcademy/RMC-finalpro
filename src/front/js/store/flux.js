@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     const resp = await fetch(process.env.BACKEND_URL + "/api/signup", {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json'
+                            "Content-Type": "application/json"
                         },
                         body: JSON.stringify(dataToSend)
                     })
