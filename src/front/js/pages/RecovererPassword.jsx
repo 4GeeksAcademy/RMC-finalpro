@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-const Login = () => {
+const RecoverPassword = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
 
   const validatePassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,15}$/;
@@ -18,9 +19,10 @@ const Login = () => {
       return;
     }
 
-    setError(""); 
-    console.log("Iniciando sesión con:", { email, password });
-    
+    setError("");
+    setMessage("Se ha enviado un correo con las instrucciones para restablecer tu contraseña.");
+    console.log("Recuperar contraseña para:", { email, password });
+   
   };
 
   return (
@@ -40,7 +42,7 @@ const Login = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">Contraseña</label>
+            <label htmlFor="password" className="form-label">Nueva Contraseña</label>
             <input 
               type="password" 
               name="password" 
@@ -52,14 +54,12 @@ const Login = () => {
           </div>
 
           {error && <div className="alert alert-danger">{error}</div>}
+          {message && <div className="alert alert-success">{message}</div>}
 
-          <button type="submit" className='btn btn-primary'>Iniciar sesión</button>
+          <button type="submit" className='btn btn-primary'>Restablecer contraseña</button>
 
           <div className="mt-3">
-            <label>¿No tienes una cuenta? <a href="/register">Regístrate</a></label>
-          </div>
-          <div className="mt-3">
-            <label><a href="/recover-password">Olvidé mi contraseña</a></label>
+            <label>¿Recordaste tu contraseña? <a href="/login">Inicia sesión</a></label>
           </div>
         </form>
       </div>
@@ -67,4 +67,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default RecoverPassword;
