@@ -2,35 +2,35 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext.js";
 
 const AddContact = () => {
-    const { actions } = useContext(Context);
-    const [errors, setErrors] = useState({});
-    const [payload, setPayload] = useState({
-        full_name: "",
-        email: "",
-        phone_number: "",
-        role: "",
-        user_id: ""  // 🔹 Agregamos user_id en el estado
-    });
-
-    // Obtener user_id desde localStorage al montar el componente
+    const { actions } = useContext(Context);                                        
+    const [errors, setErrors] = useState({});             
+    const [payload, setPayload] = useState({               
+        full_name: "",   
+        email: "",        
+        phone_number: "",                                                                       
+        role: "",      
+        user_id: ""  // 🔹 Agregamos user_id en el estado  
+    });         
+          
+    // Obtener user_id desde localStorage al montar el componente  
     useEffect(() => {
         const storedUserId = localStorage.getItem("id");
         if (storedUserId) {
             setPayload(prevPayload => ({
-                ...prevPayload,
-                user_id: storedUserId // 🔹 Lo asignamos al payload
+                ...prevPayload,     
+                user_id: storedUserId // 🔹 Lo asignamos al payload      
             }));
-        }
-    }, []);
-
-    // Manejo del cambio en los inputs
+        }       
+    }, []);              
+    // Manejo del cambio en los inputs                            
+ 
     const handleChange = (e) => {
         setPayload({
             ...payload,
             [e.target.name]: e.target.value
         });
     };
-
+    
     // Validación del formulario
     const validateForm = () => {
         let newErrors = {};
@@ -38,7 +38,7 @@ const AddContact = () => {
 
         if (!payload.full_name.trim()) newErrors.full_name = genericLegend;
         if (!payload.email.trim()) newErrors.email = genericLegend;
-        if (!payload.phone_number.trim()) newErrors.phone_number = genericLegend;
+        if (!payload.phone_number.trim()) newErrors.phone_number = genericLegend;fffg
         if (!payload.role.trim()) newErrors.role = genericLegend;
 
         setErrors(newErrors);
@@ -121,3 +121,4 @@ const AddContact = () => {
 };
 
 export default AddContact;
+

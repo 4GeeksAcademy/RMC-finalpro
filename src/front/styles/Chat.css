@@ -1,104 +1,453 @@
-.backpage {
-    width: 100%;
-    min-height: calc(100vh - 200px);
-    display: grid;
-    place-content: center;
-  }
-  
-  .container {
-    max-width: 350px;
-    background: #f8f9fd;
-    background: linear-gradient(
-      0deg,
-      rgb(255, 255, 255) 0%,
-      rgb(244, 247, 251) 100%
-    );
-    border-radius: 40px;
-    padding: 25px 35px;
-    border: 5px solid rgb(255, 255, 255);
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
-    margin: 20px auto;
-  }
-  
-  .heading {
-    text-align: center;
-    font-weight: 900;
-    font-size: 30px;
-    color: rgb(184, 0, 169);
-  }
-  
-  .forms {
-    margin-top: 20px;
-  }
-  
-  .forms .input {
-    width: 100%;
-    background: white;
-    border: none;
-    padding: 15px 20px;
-    word-wrap: break-word;
-    border-radius: 20px;
-    margin-top: 15px;
-    box-shadow: #cff0ff 0px 10px 10px -5px;
-    border-inline: 2px solid transparent;
-  }
-  
-  .forms .input:focus {
-    outline: none;
-    border-inline: 2px solid rgb(82, 88, 243);;
-  }
-  
-  .chat-box {
-    display: flex;
+/* Estilos generales del contenedor principal */
+.chat-page {
+  width: 100%;
+  min-height: calc(80vh - 48px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fa;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Contenedor del chat */
+.chat-container {
+  width: 90%;
+  max-width: 800px;
+  height: 64vh;
+  min-height: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(138, 43, 226, 0.15);
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+/* Encabezado principal */
+.chat-heading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 22.4px;
+  color: #8A2BE2;
+  margin-bottom: 16px;
+  padding-top: 8px;
+}
+
+/* --- Sidebar (Panel izquierdo) --- */
+.sidebar {
+  width: 35%;
+  min-width: 240px;
+  background: #f8f9fd;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Parte superior del sidebar */
+.sidebar-top {
+  padding: 16px;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-top h3 {
+  color: #8A2BE2;
+  margin: 0 0 12px 0;
+  font-size: 14.4px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Lista de usuarios */
+.user-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Estilos de la barra de desplazamiento */
+.user-list::-webkit-scrollbar {
+  width: 4.8px;
+}
+
+.user-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2.4px;
+}
+
+.user-list::-webkit-scrollbar-thumb {
+  background: #8A2BE2;
+  border-radius: 2.4px;
+}
+
+/* Estilos de cada usuario */
+.user {
+  padding: 9.6px 12px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+  box-shadow: 0 1.6px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.user:hover {
+  transform: translateY(-1.6px);
+  box-shadow: 0 3.2px 6.4px rgba(0, 0, 0, 0.1);
+}
+
+.selected-user {
+  background: #8A2BE2 !important;
+  color: white;
+  border-color: #8A2BE2 !important;
+}
+
+/* Botón para eliminar usuario */
+.remove-user-btn {
+  background: transparent;
+  border: none;
+  color: #ff4d4f;
+  font-size: 14.4px;
+  cursor: pointer;
+  width: 19.2px;
+  height: 19.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.remove-user-btn:hover {
+  background: rgba(255, 77, 79, 0.1);
+}
+
+.selected-user .remove-user-btn {
+  color: white;
+}
+
+/* Parte inferior del sidebar */
+.sidebar-bottom {
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  background: white;
+}
+
+/* Formulario para agregar usuario */
+.add-user {
+  display: flex;
+  gap: 8px;
+}
+
+.add-user input {
+  flex: 1;
+  padding: 9.6px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 11.2px;
+  transition: all 0.2s;
+}
+
+.add-user input:focus {
+  outline: none;
+  border-color: #8A2BE2;
+  box-shadow: 0 0 0 1.6px rgba(138, 43, 226, 0.2);
+}
+
+.add-user button {
+  background: #8A2BE2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  font-size: 14.4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-user button:hover {
+  background: #7B1FA2;
+}
+
+/* --- Área de chat principal --- */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+}
+
+/* Encabezado del chat */
+.chat-header {
+  padding: 12px 16px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  color: #8A2BE2;
+  font-size: 14.4px;
+  text-align: center;
+}
+
+/* Área de mensajes */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Estilos de la barra de desplazamiento */
+.messages::-webkit-scrollbar {
+  width: 4.8px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2.4px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #8A2BE2;
+  border-radius: 2.4px;
+}
+
+/* Estilos de cada mensaje */
+.message {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+  align-self: flex-end;
+}
+
+.other-user-message {
+  align-self: flex-start;
+}
+
+/* Información del mensaje (remitente) */
+.messageinfo {
+  font-size: 9.6px;
+  color: #666;
+  margin-bottom: 3.2px;
+  padding: 0 4px;
+}
+
+.user-message .messageinfo {
+  text-align: right;
+}
+
+.other-user-message .messageinfo {
+  text-align: left;
+}
+
+/* Contenido del mensaje */
+.messagecontent {
+  padding: 9.6px 12px;
+  border-radius: 9.6px;
+  word-wrap: break-word;
+  box-shadow: 0 1.6px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-message .messagecontent {
+  background: #8A2BE2;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.other-user-message .messagecontent {
+  background: white;
+  border-bottom-left-radius: 0;
+  border: 1px solid #e0e0e0;
+}
+
+/* Área de entrada de mensajes */
+.chat-input {
+  padding: 12px 16px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 9.6px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 11.2px;
+  transition: all 0.2s;
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: #8A2BE2;
+  box-shadow: 0 0 0 1.6px rgba(138, 43, 226, 0.2);
+}
+
+.chat-input button {
+  background: #8A2BE2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.chat-input button:hover {
+  background: #7B1FA2;
+}
+
+/* --- Estilos responsivos --- */
+@media (max-width: 768px) {
+  .chat-container {
     flex-direction: column;
-    overflow-y: auto;
-    max-height: 300px;
-    border: 1px solid #cfd9e3;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 20px;
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 20px -10px;
-    background: linear-gradient(
-      180deg,
-      rgb(255, 255, 255) 0%,
-      rgb(240, 245, 250) 100%
-    );
+    height: auto;
+    min-height: 72vh;
   }
   
-  .message {
-    max-width: 70%;
-    padding: 10px 15px;
-    border-radius: 15px;
-    margin: 5px 0;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -2px;
-  }
-  
-  .user-message {
-    background-color: #1948cf;
-    color: white;
-    align-self: flex-end;
-  }
-  
-  .other-user-message {
-    background-color: #e6eef8;
-    color: black;
-    align-self: flex-start;
-  }
-  
-  .inputuser {
+  .sidebar {
     width: 100%;
-    background: white;
-    border: none;
-    padding: 15px 20px;
-    word-wrap: break-word;
-    border-radius: 20px;
-    margin-top: 15px;
-    box-shadow: rgb(82, 88, 243) 0px 10px 15px -5px;
-    border-inline: 2px solid transparent;
+    min-width: auto;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
   }
-  
-  .inputuser:focus {
-    outline: none;
-    border-inline: 2px solidrgb(82, 88, 243);;
-  }
-  
+      
+  .message {
+    max-width: 85%;        
+  }   
+}     
+
+/* Estilos generales */
+.chat-page {
+  width: 100%;
+  min-height: calc(80vh - 48px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fa;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Contenedor del chat */
+.chat-container {
+  width: 90%;
+  max-width: 800px;
+  height: 64vh;
+  min-height: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(138, 43, 226, 0.15);
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+/* Encabezado principal */
+.chat-heading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 22.4px;
+  color: #8A2BE2;
+  margin-bottom: 16px;
+  padding-top: 8px;
+}
+
+/* --- Sidebar (Panel izquierdo) --- */
+.sidebar {
+  width: 35%;
+  min-width: 240px;
+  background: #f8f9fd;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Resto de tus estilos de sidebar permanecen igual */
+
+/* --- Área de chat principal --- */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+}
+
+/* Mensajes */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  max-width: 70%;
+  display: flex;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.message.right {
+  align-self: flex-end;
+}
+
+.message.left {
+  align-self: flex-start;
+}
+
+.messagecontent {
+  padding: 12px 15px;
+  border-radius: 12px;
+  word-wrap: break-word;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos alternados para mensajes */
+.message.right .messagecontent {
+  background: #8A2BE2;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.message.left .messagecontent {
+  background: #E3F2FD;
+  border-bottom-left-radius: 0;
+}
+
+/* Área de entrada de mensajes */
+.chat-input {
+  padding: 12px 16px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+}
+
+/* Resto de tus estilos permanecen igual */

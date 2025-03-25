@@ -98,4 +98,4 @@ class Contact(db.Model):
             "user_id": self.user_id
         }
 
-    
+          
