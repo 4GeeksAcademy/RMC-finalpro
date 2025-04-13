@@ -77,7 +77,7 @@ const EmergencyButton = ({ userId }) => {
                 disabled={loading}
             >
                 <i className="fas fa-exclamation-triangle me-2"></i>
-                {loading ? 'Enviando...' : ''}
+                {loading ? '' : ''}
             </button>
 
             {showCountdown && (

@@ -24,7 +24,7 @@
 	text-align: center;
 	font-weight: 900;
 	font-size: 30px;
-	color: rgb(184, 0, 169);
+	color: rgb(134, 37, 68);
   }
   
   .forms {
@@ -72,7 +72,7 @@
 	display: block;
 	width: 100%;
 	font-weight: bold;
-	background: #1948cf;
+	background: rgb(186, 150, 162);
 	color: white;
 	padding-block: 15px;
 	margin: 20px auto;

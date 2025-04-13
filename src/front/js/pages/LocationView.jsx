@@ -34,7 +34,7 @@ const LocationView = () => {
     if (!isLoaded) return <p>Cargando mapa...</p>;
 
     return (
-        <>
+        <div style={{marginTop:"20%", marginBottom:"30%"}}>
             <div className="containermap">
                 <GoogleMap
                     mapContainerStyle={mapContainerStyle}
@@ -52,7 +52,7 @@ const LocationView = () => {
                                 }}
                                 onClick={() =>
                                     Swal.fire(
-                                        `Dirección: ${place.formattedAddress}\nTeléfono internacional: ${place.internationalPhoneNumber || "No disponible"}`
+                                        `${place.displayName?.text || "Sin nombre"}\nDirección: ${place.formattedAddress}\nTeléfono: ${place.internationalPhoneNumber || "No disponible"}`
                                     )
                                 }
                             />
@@ -69,7 +69,7 @@ const LocationView = () => {
                             <p>{place.formattedAddress || "Dirección desconocida"}</p>
                             {place.internationalPhoneNumber && (
                                 
-                                <p><hr/>Teléfono internacional: {place.internationalPhoneNumber}</p>
+                                <p><hr/>Teléfono: {place.internationalPhoneNumber}</p>
                             )}
                         </div>
                     ))
@@ -81,12 +81,12 @@ const LocationView = () => {
             <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
                 <button className='login-buttonesMap' onClick={() => setSelectedType("hospital")}>Hospitales</button>
                 <button className='login-buttonesMap' onClick={() => setSelectedType("police")}>Policía</button>
-                <button className='login-buttonesMap' onClick={() => setSelectedType("embassy")}>Embajadas</button>
+                <button className='login-buttonesMap' onClick={() => setSelectedType("city_hall")}>Gobierno</button>
             </div>
             <br />
             <br />
 
-        </>
+        </div>
     );
 };
 
