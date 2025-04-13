@@ -30,7 +30,7 @@
 	text-align: center;
 	font-weight: 900;
 	font-size: 20px;
-	color:rgb(184, 0, 169);
+	color:rgb(134, 37, 68);
   }
   
   .forms-modal {
@@ -78,7 +78,7 @@
 	display: block;
 	width: 100%;
 	font-weight: bold;
-	background: #1948cf;
+	background: rgb(134, 37, 68);
 	color: white;
 	padding-block: 15px;
 	margin: 20px auto;
@@ -223,7 +223,7 @@
 }
 
 .close-button {
-  background: #1948cf;
+  background: rgb(134, 37, 68);
   color: white;
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
 }

@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from '../store/appContext';
 import { useNavigate } from 'react-router-dom';
 import './../../styles/Login.css';
+import LOGO from '../../img/garciaback.png'
 
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState('');
@@ -44,8 +45,11 @@ const Login = ({ setToken }) => {
 
   return (
     <div className='backpage'>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <img src={LOGO} className='logo' />
+      </div>
       <div className="container">
-        <div className="heading">Login</div>
+        <div className="heading">Ingresar</div>
         <form className="forms" onSubmit={handleSubmit}>
           <input
             placeholder="E-mail"
@@ -78,9 +82,9 @@ const Login = ({ setToken }) => {
             <input value="Iniciar sesión" type="submit" className="login-buttont" />
           </div>
         </form>
-        <span className="login-buttonesN2">
+        {/* <span className="login-buttonesN2">
           <a href="/paypal-balance" style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }}>Donar</a>
-        </span>
+        </span> */}
       </div>
     </div>
   );

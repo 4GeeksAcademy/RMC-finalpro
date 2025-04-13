@@ -3,7 +3,7 @@ import { Context } from '../store/appContext';
 import { useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";;
 import "../../styles/home.css";
-import LOGO from "../../img/viasacra.png"
+import LOGO from "../../img/garciaback.png"
 import { RiHome6Fill } from "react-icons/ri";
 import Swal from 'sweetalert2';
 
@@ -57,8 +57,7 @@ const Navbar = () => {
               handleMigrappClick();
             }}
           >
-            <img src={LOGO} alt="Via Sacra" className="logo" style={{ height: "50px" }} />
-            <strong className='heading' style={{ fontFamily: "fantasy" }}> Via Sacra</strong>
+            <img src={LOGO} alt="Via Sacra" className="logo"  />
           </a>
 
           <button className="login-buttonesN" style={{ float: "right" }} onClick={() => {

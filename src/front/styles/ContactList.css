@@ -25,7 +25,7 @@
 	text-align: center;
 	font-weight: 900;
 	font-size: 30px;
-	color:rgb(184, 0, 169);
+	color:rgb(134, 37, 68);
   }
   
   .forms {
@@ -40,7 +40,7 @@
     word-wrap:break-word;
 	border-radius: 20px;
 	margin-top: 15px;
-	box-shadow: rgb(82, 88, 243) 0px 10px 10px -5px;
+	box-shadow: (134, 37, 68, 0.647) 0px 10px 10px -5px;
 	border-inline: 2px solid transparent;
   }
   
@@ -54,7 +54,7 @@
   
   .forms .input:focus {
 	outline: none;
-	border-inline: 2px solid rgb(82, 88, 243);
+	border-inline: 2px solid (134, 37, 68, 0.647);
   }
   
   .forms .forgot-password {
@@ -65,7 +65,7 @@
   
   .forms .forgot-password a {
 	font-size: 13px;
-	color: rgb(82, 88, 243);
+	color: (134, 37, 68, 0.647);
 	text-decoration: none;
 	text-align: center;
   }
@@ -74,13 +74,13 @@
 	display: block;
 	width: 100%;
 	font-weight: bold;
-	background: #1948cf;
+	background: rgb(186, 150, 162);
 	color: white;
 	padding-block: 15px;
     margin: 20px auto;
     text-align: center;
 	border-radius: 20px;
-	box-shadow: rgb(82, 88, 243) 0px 20px 10px -15px;
+	box-shadow: (134, 37, 68, 0.647) 0px 20px 10px -15px;
 	border: none;
 	transition: all 0.2s ease-in-out;
   }
@@ -92,12 +92,12 @@
   .forms .login-button:focus {
     outline: none;
   
-	box-shadow: rgb(82, 88, 243) 0px 23px 10px -20px;
+	box-shadow: (134, 37, 68, 0.647) 0px 23px 10px -20px;
   }
   
   .forms .login-button:active {
 	transform: scale(2);
-	box-shadow: rgb(82, 88, 243) 0px 15px 10px -10px;
+	box-shadow: (134, 37, 68, 0.647) 0px 15px 10px -10px;
   }
   
   .social-account-container {
@@ -128,7 +128,7 @@
 	aspect-ratio: 1;
 	display: grid;
 	place-content: center;
-	box-shadow:rgb(82, 88, 243) 0px 12px 10px -8px;
+	box-shadow:(134, 37, 68, 0.647) 0px 12px 10px -8px;
 	transition: all 0.2s ease-in-out;
   }
   
